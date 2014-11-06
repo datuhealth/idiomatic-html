@@ -37,10 +37,9 @@ be consistent in your use of whitespace. Use whitespace to improve
 readability.
 
 * Never mix spaces and tabs for indentation.
-* Choose between soft indents (spaces) or real tabs. Stick to your choice
-  without fail. (Preference: spaces)
-* If using spaces, choose the number of characters used per indentation level.
-  (Preference: 4 spaces)
+* Always use soft tabs ( spaces )
+* Use 4 space tabs
+* `<html>`, `<head>`, and `<body>` tags should all be indented at the same level.
 
 Tip: configure your editor to "show invisibles". This will allow you to
 eliminate end of line whitespace, eliminate unintended blank line whitespace,
@@ -77,7 +76,7 @@ Example:
 
 ### Exceptions and slight deviations
 
-Elements with multiple attributes can have attributes arranged across multiple
+Elements with 4 or more attributes must have attributes arranged across multiple
 lines in an effort to improve readability and produce more useful diffs.
 
 Example:
@@ -91,6 +90,16 @@ Example:
 </a>
 ```
 
+Additionally, nested container elements may be allowed to be placed on the same line.
+
+Example:
+
+```html
+<li><a href="">
+    ...
+</a></li>
+```
+
 
 <a name="attribute-order"></a>
 ## 4. Attribute order
@@ -102,7 +111,8 @@ elements.
 1. `class`
 2. `id`
 3. `data-*`
-4. Everything else
+4. Element specific attributes ( `src`, `href`, `name`, etc )
+5. Everything else
 
 Example:
 
@@ -118,8 +128,7 @@ Naming is hard, but very important. It's a crucial part of the process of
 developing a maintainable code base, and ensuring that you have a relatively
 scalable interface between your HTML and CSS/JS.
 
-* Use clear, thoughtful, and appropriate names for HTML classes. The names
-  should be informative both within HTML and CSS files.
+* Use [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) syntax for class and ID names.
 * Avoid _systematic_ use of abbreviated class names. Don't make things
   difficult to understand.
 
@@ -155,6 +164,23 @@ Example with better names:
 }
 ```
 
+Prototype only `data` attribute tags should be namespaced to `data-proto-`. Additionally, any datuUI specific `data` targets should be namespaced to the function they're used for.
+
+Exmaple of bad data attributes:
+
+```html
+<span data-target="some-throwaway-target"></span>
+<span data-target="multiSelect"></span>
+```
+
+Example of good data-attributes:
+
+```html
+<span data-proto-target="open-message"></span>
+<span data-tooltip-title="Watch out!"></span>
+```
+
+You should try not to use IDs. If you need to, it should only be a case where you need a unique name. Do not use it in CSS.
 
 <a name="example"></a>
 ## 6. Practical example
