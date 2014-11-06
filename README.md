@@ -83,10 +83,10 @@ Example:
 
 ```html
 <a class="[value]"
- data-action="[value]"
- data-id="[value]"
- href="[url]">
-    <span>[text]</span>
+    data-action="[value]"
+    data-id="[value]"
+    href="[url]">
+        <span>[text]</span>
 </a>
 ```
 
