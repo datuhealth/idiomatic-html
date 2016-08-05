@@ -1,3 +1,7 @@
+# UNMAINTAINED
+
+This project is no longer being maintained. It's suggested that an alternative be used instead.
+
 # Principles of writing consistent, idiomatic HTML
 
 The following document outlines a reasonable style guide for HTML development.
